@@ -4,13 +4,24 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "dev":  "nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "express": "^4.21.2"
-  }
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hazxllx/Act-8.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hazxllx/Act-8/issues"
+  },
+  "homepage": "https://github.com/hazxllx/Act-8#readme",
+  "description": ""
 }

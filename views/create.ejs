@@ -1,35 +1,21 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <%- include("./partials/head.ejs") %>
 
 <body>
-
-  <!-- Includes the navigation bar from a partial -->
   <%- include("./partials/nav.ejs") %>
 
-  <!-- Blog creation form section -->
   <div class="create-blog content">
-    <form>
-      <!-- Blog title input -->
+    <form action="/blogs" method="POST">
       <label for="title">Blog title:</label>
       <input type="text" id="title" name="title" required>
-
-      <!-- Blog snippet input -->
       <label for="snippet">Blog snippet:</label>
       <input type="text" id="snippet" name="snippet" required>
-
-      <!-- Blog body text area -->
       <label for="body">Blog body:</label>
       <textarea id="body" name="body" required></textarea>
-
-      <!-- Submit button -->
       <button>Submit</button>
     </form>
   </div>
 
-  <!-- Includes the footer from a partial -->
   <%- include("./partials/footer.ejs") %>
-
 </body>
 </html>

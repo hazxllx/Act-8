@@ -1,54 +1,31 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Dynamically sets the page title using EJS -->
-    <title>N4 | <%= title %></title>
-</head>
+<%- include("./partials/head.ejs") %>
+
 <body>
+  <%- include("./partials/nav.ejs") %>
 
-    <!-- Nav Bar -->
-    <nav>
-        <!-- Site title and subtitle -->
-        <div class="site-title">
-            <!-- Clicking the title redirects to the home page -->
-            <a href="/"><h1>Trends in Application Development</h1></a>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Porro dolores laboriosam modi vero mollitia sit praesentium dolore! 
-                Nostrum temporibus eaque ea pariatur soluta nam totam asperiores. 
-                At iste labore unde.
-            </p>
-        </div>
+  <form action="/blogs/search" method="GET" class="search-form">
+    <input type="text" name="q" placeholder="Search blogs..." required>
+    <button type="submit">Search</button>
+  </form>  
+  
 
-        <!-- Nav links -->
-        <ul>
-            <li><a href="/blogs">Blogs</a></li>       
-            <li><a href="/about">About</a></li>         
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
+  <div class="blogs content">
+    <h2>All Blogs</h2>
 
-    <!-- Listing Section -->
-    <div class="blogs">
-        <% if (blogs.length > 0) { %>
-            <!-- Loops through each blog and renders it -->
-            <% blogs.forEach(blog => { %>
-                <div class="blog">
-                    <h3><%= blog.title %></h3>   <!-- Blog title -->
-                    <p><%= blog.snippet %></p>   <!-- Short description/snippet -->
-                </div>
-            <% }); %>
-        <% } else { %>
-            <!-- Shown if no blogs exist -->
-            <p>There are no blogs to display.</p>
-        <% } %>
-    </div>
+    <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <a class="single" href="/blogs/<%= blog._id %>">
+          <h3 class="title"><%= blog.title %></h3>
+          <p class="snippet"><%= blog.snippet %></p>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no blogs to display...</p>
+    <% } %>
+    
+  </div>
 
-    <!-- Reuses footer layout from a partial file -->
-    <%- include("./partials/footer.ejs") %>
-
+  <%- include("./partials/footer.ejs") %>
 </body>
 </html>
